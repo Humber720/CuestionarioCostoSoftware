@@ -38,10 +38,10 @@ sendFormBtn.addEventListener('click', async function() {
 
   const questions = [
     { q: "1. ¿Qué se entiende por costo de software?", name: "q1", correct: "b" },
-    { q: "2. ¿Qué representa el modelo COCOMO II?", name: "q2", correct: "c" },
-    { q: "3. ¿Qué mide el concepto de “Punto Función”?", name: "q3", correct: "b" },
-    { q: "4. ¿Qué estrategia ayuda a optimizar los costos de desarrollo?", name: "q4", correct: "c" },
-    { q: "5. El costo del software debe considerarse un gasto y no una inversión.", name: "q5", correct: "b" }
+    { q: "2. ¿Qué representa el modelo COCOMO II?", name: "q3", correct: "c" },
+    { q: "3. ¿Qué mide el concepto de “Punto Función”?", name: "q4", correct: "b" },
+    { q: "4. ¿Qué estrategia ayuda a optimizar los costos de desarrollo?", name: "q5", correct: "c" },
+    { q: "5. El costo del software debe considerarse un gasto y no una inversión.", name: "q6", correct: "falso" }
   ];
 
   let score = 0;
