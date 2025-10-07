@@ -123,7 +123,8 @@ sendFormBtn.addEventListener('click', async function() {
   doc.setFont(undefined,"bold");
   doc.text(`Puntaje total: ${score} / ${questions.length}`, leftMargin, y);
 
-  datosEnviados["Puntaje"] = score;
+  datosEnviados["Puntaje"] = score.toString();
+
 
   // ----------------------
   // DESCARGAR PDF
