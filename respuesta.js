@@ -25,7 +25,7 @@ document.getElementById('submitBtn').addEventListener('click', async function() 
     // Márgenes y ancho seguro
     const leftMargin = 10;
     const rightMargin = 190;
-    const lineWidth = rightMargin - leftMargin - 10; // margen seguro
+    const lineWidth = rightMargin - leftMargin - 15; // ancho seguro
 
     // Cabecera PDF
     doc.setFontSize(15);
@@ -34,7 +34,7 @@ document.getElementById('submitBtn').addEventListener('click', async function() 
     doc.text("CARRERA: SISTEMAS INFORMÁTICOS", 105, 25, null, null, "center");
     doc.text("Cuestionario de Costo de Software", 105, 35, null, null, "center");
 
-    doc.setFontSize(10); // Fuente más pequeña para que quepa
+    doc.setFontSize(10); // fuente más pequeña para que quepa
     doc.text(`Nombre del estudiante: ${studentName}`, leftMargin, 50);
     doc.text(`Fecha: ${fecha}`, 150, 50);
 
@@ -72,8 +72,8 @@ document.getElementById('submitBtn').addEventListener('click', async function() 
             let text = opt.nextSibling.textContent.trim().replace(/[\u0000-\u001F\u007F-\u009F&]/g,"");
             let icon = opt.checked ? "☑" : "☐";
             let color = [0,0,0];
-            if(enciso.toLowerCase() === correctAnswer) color = [0,128,0];
-            if(opt.checked && enciso.toLowerCase() !== correctAnswer) color = [255,0,0];
+            if(enciso.toLowerCase() === correctAnswer) color = [0,128,0]; // verde
+            if(opt.checked && enciso.toLowerCase() !== correctAnswer) color = [255,0,0]; // rojo si se equivoca
             return { text: `${icon} ${text}`, color: color };
         });
 
