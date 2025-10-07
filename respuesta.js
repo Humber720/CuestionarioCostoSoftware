@@ -36,6 +36,9 @@ sendFormBtn.addEventListener('click', async function() {
     return;
   }
 
+  // ----------------------
+  // ARREGLO DE PREGUNTAS
+  // ----------------------
   const questions = [
     { q: "1. ¿Qué se entiende por costo de software?", name: "q1", correct: "b" },
     { q: "2. ¿Qué representa el modelo COCOMO II?", name: "q3", correct: "c" },
@@ -75,17 +78,20 @@ sendFormBtn.addEventListener('click', async function() {
   doc.text(`Fecha: ${fecha}`, 150, y);
   y += 10;
 
-  // Preguntas
+  // ----------------------
+  // RECORRER PREGUNTAS
+  // ----------------------
   for(const item of questions){
     const selected = document.querySelector(`input[name="${item.name}"]:checked`);
-    const selectedValue = selected ? selected.value : "No respondida";
-    datosEnviados[item.name] = selectedValue;
+    const selectedValue = selected ? selected.value.trim() : "No respondida";
+    datosEnviados[item.name] = selectedValue; // Guarda el valor tal cual ("verdadero"/"falso" o "a"/"b"...)
 
+    // Calcular puntaje
     let punto = 0;
     if(selectedValue.toLowerCase() === item.correct.toLowerCase()) punto = 1;
     score += punto;
 
-    // Pregunta
+    // Pregunta en PDF
     doc.setFont(undefined, "bold");
     const qLines = doc.splitTextToSize(item.q, lineWidth);
     qLines.forEach(line => {
@@ -94,7 +100,7 @@ sendFormBtn.addEventListener('click', async function() {
       if(y > pageHeight - 20){ doc.addPage(); y = 20; }
     });
 
-    // Opciones
+    // Opciones en PDF
     const options = Array.from(document.querySelectorAll(`input[name="${item.name}"]`)).map(opt=>{
       const enciso = opt.value;
       const text = opt.nextSibling.textContent.trim();
@@ -125,7 +131,6 @@ sendFormBtn.addEventListener('click', async function() {
 
   datosEnviados["Puntaje"] = score.toString();
 
-
   // ----------------------
   // DESCARGAR PDF
   // ----------------------
@@ -150,3 +155,14 @@ sendFormBtn.addEventListener('click', async function() {
   spinner.style.display = 'none';
   sendFormBtn.disabled = false;
 });
+
+// ----------------------
+// SPINNER ANIMACIÓN
+// ----------------------
+const style = document.createElement('style');
+style.textContent = `
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}`;
+document.head.appendChild(style);
