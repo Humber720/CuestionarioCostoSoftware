@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Costo de Software</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="container">
+        <center><h1>INSTITUTO TECNOLÓGICO SUPERIOR MECAPACA</h1></center>
+        <center><h2>CARRERA: SISTEMAS INFORMÁTICOS</h2></center>
+        <center><h3>Cuestionario de Costo de Software</h3>
+        <form id="quizForm">
+            <!-- Campo Nombre y Apellido -->
+            <div class="user-info">
+                <label for="studentName">Nombre y Apellido:</label>
+                <input type="text" id="studentName" name="studentName" placeholder="Escribe tu nombre completo" required>
+            </div>
+            <h3>Estimado(a): compañero(a) selecciona las respuestas correstas:</h3>
+            <br>
+            <!-- Preguntas -->
+            <div class="question">
+                <p>1. ¿Qué se entiende por costo de software?</p>
+                <label><input type="radio" name="q1" value="a">a) El gasto en equipos de computación.</label>
+                <label><input type="radio" name="q1" value="b">b) La inversión total para desarrollar, implementar y mantener un programa.</label>
+                <label><input type="radio" name="q1" value="c"> c) El pago a los usuarios finales.</label>
+                <label><input type="radio" name="q1" value="d"> d) El costo del hardware.</label>
+            </div>
+
+            <div class="question">
+                <p>2. ¿Qué representa el modelo COCOMO II?</p>
+                <label><input type="radio" name="q3" value="a"> a) Un lenguaje de programación</label>
+                <label><input type="radio" name="q3" value="b"> b) Una técnica de diseño</label>
+                <label><input type="radio" name="q3" value="c"> c) Un modelo para estimar costo, esfuerzo y duración de proyectos de software</label>
+                <label><input type="radio" name="q3" value="d"> d) Un tipo de software comercial</label>
+            </div>
+
+            <div class="question">
+                <p>3. ¿Qué mide el concepto de “Punto Función”?</p>
+                <label><input type="radio" name="q4" value="a"> a) La cantidad de líneas de código</label>
+                <label><input type="radio" name="q4" value="b"> b) El tamaño funcional del software basado en sus funcionalidades</label>
+                <label><input type="radio" name="q4" value="c"> c) El tiempo de desarrollo</label>
+                <label><input type="radio" name="q4" value="d"> d) El presupuesto disponible</label>
+            </div>
+
+            <div class="question">
+                <p>4. ¿Qué estrategia ayuda a optimizar los costos de desarrollo?</p>
+                <label><input type="radio" name="q5" value="a"> a) Aumentar el equipo sin planificación</label>
+                <label><input type="radio" name="q5" value="b"> b) Ignorar los cambios de requisitos</label>
+                <label><input type="radio" name="q5" value="c"> c) Adoptar metodologías ágiles como Scrum o Kanban</label>
+                <label><input type="radio" name="q5" value="d"> d) Iniciar sin definir objetivos claros</label>
+            </div>
+
+            <div class="question">
+                <p>5. El costo del software debe considerarse un gasto y no una inversión.</p>
+                <label><input type="radio" name="q6" value="verdadero"> Verdadero</label>
+                <label><input type="radio" name="q6" value="falso"> Falso</label>
+            </div>
+
+            <button type="button" id="submitBtn">Enviar y Descargar PDF</button>
+        </form>
+    </div>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
